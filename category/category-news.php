@@ -33,7 +33,6 @@ $parent_cat=get_category(get_category($newsId)->parent);
     </div>
 
     <div class="dot wp1200"></div>
-
     <div class="newsListCon">
         <div class="wp1200">
             <ul class="newsList">

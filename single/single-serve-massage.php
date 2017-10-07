@@ -25,120 +25,114 @@ $parent_cat=(get_category($cat->parent));
 
 
 
+    <div class="header-one">
+		<span><?php echo $parent_cat->cat_name;?></span>
+        <div class="back">
+            <a href="javascript:void(0)" onclick="javascript:window.history.go(-1);">
+                <i></i>
+            </a>
+        </div>
+        <div class="nav-home">
+            <a href="/wap">
+                <span></span>
+            </a>
+        </div>
 
-<div class="insideBanner por" style="background-image: url(<?php echo get_stylesheet_directory_uri();?>/static/upload/serve_massage.jpg)">
-	<div class="insideBannerBg"></div>
-	<div class="path wp1200 clearfloat">
-		<div class="word">
-			<div class="cn"><?php echo $cat->cat_name;?></div>
-			<div class="en font-baskvill"><?php echo category_description("$catId");?></div>
-		</div>
-		<div class="bread">
-			<a href="/">首页</a>
-			>&nbsp;<a href="<?php the_permalink(107);?>"><?php echo $parent_cat->cat_name;?></a>
-			>&nbsp;<a href="javascript:void(0);"><?php echo the_title();?></a>
-		</div>
-	</div>
-</div>
+        <div class="nav-btn">
+            <a href="javascript:void(0)">
+                <span></span>
+            </a>
+        </div>
+    </div>
+    <!--banner-->
+    <div class="news-flash-list-banner talent-banner" style="background-image: url(<?php echo get_stylesheet_directory_uri();?>/static/upload/serve_massage.jpg)">
+        <div class="y">
+            <h1><?php echo $cat->cat_name;?></h1>
+            <h2><?php echo category_description("$cat->cat_ID");?></h2>
+        </div>
+    </div>
+    <!--二级导航-->
 
-<div class="join-main bgf2">
-	<div class="wp1200">
+    <div class="nav-two swiper-container">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide ">
+                <a href="<?php the_permalink(304);?>">
+                    <?php echo get_post(304)->post_title;?>				</a>
+            </li>
+            <li class="swiper-slide ">
+                <a href="<?php the_permalink(100);?>">
+                    <?php echo get_post(100)->post_title;?>				</a>
+            </li>
+            <li class="swiper-slide">
+                <a href="<?php the_permalink(105);?>">
+                    <?php echo get_post(105)->post_title;?>				</a>
+            </li>
+            <li class="swiper-slide active">
+                <a href="<?php the_permalink(103);?>">
+                    <?php echo get_post(103)->post_title;?>				</a>
+            </li>
+        </ul>
+    </div>
+    <form name="contact_phone" id="contact_phone" method="post" action=""  onSubmit="return check()">
+        <input type="hidden" name="linkurl" value="add"/>
+        <input type="hidden" name="fgid" id="fgid" value="9"/>
+        <input type="hidden" name="formcode" id="formcode" value="contact_phone"/>
+        <input type="hidden" name="did" id="did" value="0"/>
+        <input type="hidden" name="tokenkey" value="d16acece7ced1af6825e46e128710b73"/>
+        <div class="join-us">
+            <div class="bg-yy">
+                <div class="bg">
+                    <div class="input">
+                        <input type="text" name="linkman" value="" placeholder="姓名" id="linkman">
+                    </div>
+                    <div class="input">
+                        <input type="text" name="email" value="" placeholder="Email" id="email">
+                    </div>
+                    <div class="input">
+                        <textarea placeholder="留言" name="pcontent"></textarea>
+                    </div>
+                    <div class="btn">
+                        <button type="submit">提交</button>
+                    </div>
+                    <div class="btn" style="padding-top: 20px;">
+                        <p><?php echo get_post($id)->post_content;?></p>
+                    </div>
+                </div>
 
-		<div class="inside-menu">
-			<a href="<?php the_permalink(304);?>" ><?php echo get_post(304)->post_title;?></a>
-			<a href="<?php the_permalink(100);?>" ><?php echo get_post(100)->post_title;?></a>
-			<a href="<?php the_permalink(105);?>" ><?php echo get_post(105)->post_title;?></a>
-			<a href="<?php the_permalink(103);?>" class="cur"><?php echo get_post(103)->post_title;?></a>
-		</div>
-		<div class="join-form-con">
-			<form name="contact" id="contact" method="post" onsubmit="return submitCheck();">
-				<input type="hidden" name="linkurl" value="add"/>
-				<input type="hidden" name="fgid" id="fgid" value="7"/>
-				<input type="hidden" name="formcode" id="formcode" value="contact"/>
-				<input type="hidden" name="did" id="did" value="0"/>
-				<input type="hidden" name="tokenkey" value="d18a5cd04d3308846ef0ebb4b570963b"/>
-				<div class="join-form-box">
-					<div class="join-form-title"><span>在线留言</span></div>
-					<div class="join-form-col clearfloat">
-						<div class="join-form-cell">
-							<div class="join-form-input-box">
-								<div class="join-form-input-word"><span>*</span>姓名</div>
-								<div class="join-form-input"><input name="linkman" id="linkman" type="text" value=""></div>
-							</div>
-						</div>
-						<div class="join-form-cell">
-							<div class="join-form-input-box">
-								<div class="join-form-input-word"><span>*</span>Email</div>
-								<div class="join-form-input"><input name="email" id="linkemail" type="text" value=""></div>
-							</div>
-						</div>
-					</div>
+            </div>
+        </div>
+        <script>
+            function submitCheck(){
+                var linkman = $('#linkman').val();
+                if(linkman==""){
+                    toastr.error('请填写联系人!');
+                    return false;
+                }
+                var linkemail = $('#linkemail').val();
+                if(linkemail==""){
+                    toastr.error('请填写邮箱!');
+                    return false;
+                }
+                var linkcontact = $('#linkcontact').val();
+                if(linkcontact==""){
+                    toastr.error('请填写留言内容!');
+                    return false;
+                }
+                var id="<?php echo $id;?>";
+                $.post("wp-comments-post.php",
+                    {
+                        author:linkman,
+                        comment:"联系人："+linkman+"/"+
+                        "邮箱:"+linkemail+" /"+
+                        "留言内容:"+linkcontact+" /",
+                        comment_post_ID:id,
+                        comment_parent:0,
+                    },
+                    function(data,status){
+                        alert("提交成功");
+                    });
+            }
+        </script>
+    </form>
 
-					<div class="join-form-col clearfloat" style='border:1px solid #C8C8C8;'>
-						<div class="join-form-input-word"><span>*</span>留言</div>
-						<textarea name='contact'   id='linkcontact' style='width:680px;height: 100px;border:none;font-size: 14px;resize:none;padding-left: 20px;' value=''></textarea>
-					</div>
-
-
-					<div class="join-form-col">
-						<div class="join-form-btn"><input name="submit" type="submit" value="提交"></div>
-					</div>
-					<div class="join-form-col">
-						<?php
-							echo get_post($id)->post_content;
-						?>
-					</div>
-
-					<script>
-                        $(function () {
-                            toastr.options = {
-                                "positionClass": "toast-center-center"
-                            };
-                        })
-                        function submitCheck(){
-                            var linkman = $('#linkman').val();
-                            if(linkman==""){
-                                toastr.error('请填写联系人!');
-                                return false;
-                            }
-                            var linkemail = $('#linkemail').val();
-                            if(linkemail==""){
-                                toastr.error('请填写邮箱!');
-                                return false;
-                            }
-                            var linkcontact = $('#linkcontact').val();
-                            if(linkcontact==""){
-                                toastr.error('请填写留言内容!');
-                                return false;
-                            }
-                            var id="<?php echo $id;?>";
-                            $.post("wp-comments-post.php",
-                                {
-                                    author:linkman,
-                                    comment:"联系人："+linkman+"/"+
-                                    "邮箱:"+linkemail+" /"+
-                                    "留言内容:"+linkcontact+" /",
-                                    comment_post_ID:id,
-                                    comment_parent:0,
-                                },
-                                function(data,status){
-                                    alert("提交成功");
-                                });
-                        }
-					</script>
-				</div>
-			</form>
-
-		</div>
-	</div>
-</div>
-
-<?php
-
-
-
-get_footer();
-
-
-
-?>
+<?php get_footer(); ?>
