@@ -25,6 +25,159 @@ $parent_cat=(get_category($cat->parent));
 
 ?>
 
+<div class="header-one">
+		<span><?php echo $parent_cat->cat_name;?></span>
+    <div class="back">
+        <a href="javascript:void(0)" onclick="javascript:window.history.go(-1);">
+            <i></i>
+        </a>
+    </div>
+    <div class="nav-home">
+        <a href="/wap">
+            <span></span>
+        </a>
+    </div>
+
+    <div class="nav-btn">
+        <a href="javascript:void(0)">
+            <span></span>
+        </a>
+    </div>
+</div>
+<!--轮播-->
+<div class="product-carousel-box">
+    <div class="product-carousel product-details-carousel">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <?php
+                    $img_shortcode = get_post_meta($id, "gallery" );
+                    do_shortcode( $img_shortcode[0] ,true);
+                    global $gallery;
+                    ?>
+                    <?php if(!empty($gallery)):?>
+                        <?php foreach($gallery as $img){ ?>
+                            <div class="swiper-slide" style="background-image: url(<?php echo $img->url;?>)">
+                                <a href=""></a>
+                            </div>
+                        <?php } ?><!--end foreach-->
+                <?php endif;?>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        var mySwiper = new Swiper('.product-carousel .swiper-container', {
+            autoplay: 5000, //可选选项，自动滑动
+            resistanceRatio: 0,
+            pagination: '.product-carousel .swiper-pagination',
+            loop: true
+        })
+    })
+</script>
+<div class="d-bg">
+    <div class="index-produits-box product-details-title">
+        <ul>
+            <li>
+                <a href="javascirpt:;">
+                    <div class="title">
+                        <div class="nr">
+                            <h4><?php the_title();?></h4>
+                            <h5><?php echo get_post_meta("$id","en",true); ?></h5>
+                        </div>
+                        <div class="icon"></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="details">
+            <div class="icon">
+                <i></i>
+            </div>
+            <div class="p">
+                <?php the_excerpt();?>
+            </div>
+        </div>
+    </div>
+    <!--产品介绍-->
+    <?php
+        echo get_post($id)->post_content;
+    ?>
+
+
+
+
+
+    <!--相关产品-->
+    <div class="product-details-nr-title title-swiper-slide">
+        相关产品
+        <div class="title">
+            <a href="javascript:;" class="prev"></a>
+            <a href="javascript:;" class="next"></a>
+        </div>
+    </div>
+    <div class="product-details-relevant-box">
+        <div class="swiper-container" id="product-details-relevant">
+            <ul class="product-details-relevant swiper-wrapper">
+                <li class="swiper-slide">
+                    <a href="http://www.ssk.com.cn/wap/index.php?ac=article&at=read&did=921">
+                        <div class="img" style="background-image: url(http://www.ssk.com.cn/upfile/2017/06/20170613153131_728.jpg)">
+                        </div>
+                        <div class="title">
+                            卡德						</div>
+                    </a>
+                </li>
+                <li class="swiper-slide">
+                    <a href="http://www.ssk.com.cn/wap/index.php?ac=article&at=read&did=562">
+                        <div class="img" style="background-image: url(http://www.ssk.com.cn/upfile/2016/12/20161214174115_915.jpg)">
+                        </div>
+                        <div class="title">
+                            诺昂庄园						</div>
+                    </a>
+                </li>
+                <li class="swiper-slide">
+                    <a href="http://www.ssk.com.cn/wap/index.php?ac=article&at=read&did=65">
+                        <div class="img" style="background-image: url(http://www.ssk.com.cn/upfile/2016/11/20161125104417_415.jpg)">
+                        </div>
+                        <div class="title">
+                            蒙特伯罗						</div>
+                    </a>
+                </li>
+                <li class="swiper-slide">
+                    <a href="http://www.ssk.com.cn/wap/index.php?ac=article&at=read&did=63">
+                        <div class="img" style="background-image: url(http://www.ssk.com.cn/upfile/2016/11/20161124182238_569.jpg)">
+                        </div>
+                        <div class="title">
+                            魅影						</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        var mySwiperD = new Swiper('#product-details-relevant', {
+            slidesPerView: 2,
+            spaceBetween: 15,
+            resistanceRatio: 0
+        })
+        $(".title-swiper-slide .next").click(function() {
+            mySwiperD.slideNext();
+        })
+        $(".title-swiper-slide .prev").click(function() {
+            mySwiperD.slidePrev();
+        })
+    })
+</script>
+
+
+
+
+
+
+
 
 
 
