@@ -16,85 +16,80 @@ $cat=get_category(21);
 $parent_cat=get_category($cat->parent);
 ?>
 
-    <div class="insideBanner por" style="background-image: url(<?php echo get_stylesheet_directory_uri();?>/static/upload/history_banner.jpg);">
-        <div class="insideBannerBg"></div>
-        <div class="path wp1200 clearfloat">
-            <div class="word">
-                <div class="cn"><?php echo $cat->cat_name;?></div>
-                <div class="en font-baskvill"><?php echo category_description("$cat->cat_ID")?></div>
-            </div>
-            <div class="bread">
-                <a href="/">首页</a>
-                >&nbsp;<a href="<?php the_permalink(232);?>"><?php echo $parent_cat->cat_name;?></a>
-                >&nbsp;<a href="<?php the_permalink(213);?>"><?php echo $cat->cat_name;?></a>
-                >&nbsp;<?php the_title();?>
 
+<div class="header-one">
+		<span><?php echo $parent_cat->cat_name;?></span>
+    <div class="back">
+        <a href="javascript:void(0)" onclick="javascript:window.history.go(-1);">
+            <i></i>
+        </a>
+    </div>
+    <div class="nav-home">
+        <a href="/wap">
+            <span></span>
+        </a>
+    </div>
+
+    <div class="nav-btn">
+        <a href="javascript:void(0)">
+            <span></span>
+        </a>
+    </div>
+</div>
+
+<div class="remember-banner-box">
+    <div class="remember-banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <?php
+                $cat_posts=get_posts("category=39&order=asc");
+                foreach ($cat_posts as $cat_post):?>
+                    <?php
+                    // 获取特色图像的地址
+                    $post_ID=$cat_post->ID;
+                    $post_thumbnail_id = get_post_thumbnail_id( $post_ID );
+                    $post_thumbnail_src = wp_get_attachment_image_src($post_thumbnail_id,'Full');
+                    ?>
+                    <div class="swiper-slide" style="background-image: url(<?php echo $post_thumbnail_src[0];?>)"></div>
+                <?php endforeach;?>
             </div>
         </div>
     </div>
+    <div class="year-list swiper-container">
+        <ul class="swiper-wrapper">
+            <?php
+            $cat_posts=get_posts("category=39&order=asc");
+            foreach ($cat_posts as $cat_key=>$cat_post):?>
+                <li class="swiper-slide <?php echo ($cay_key==0)?"active":"";?>">
+                    <span><?php echo $cat_post->post_title;?></span>
+                </li>
+            <?php endforeach;?>
+        </ul>
+    </div>
+</div>
+<div class="remember-box">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <?php
+            $cat_posts=get_posts("category=39&order=asc");
+            foreach ($cat_posts as $cat_key=>$cat_post):?>
+                <div class="swiper-slide remember-box-s">
+                    <h1><?php echo $cat_post->post_title;?></h1>
+                    <div class="p">
+                        <?php echo $cat_post->post_content;?>
+                    </div>
+                </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/static/js/history.js"></script>
 
-	<div class="brand-main">
-		<div class="wp1200">
-			<div class="inside-menu">
-				<?php
-				$history_menus=theme_nav_menu("history");
-				foreach ($history_menus as $history_menu):?>
-                    <a href="<?php echo $history_menu->m_url;?>" class="<?php echo ($history_menu->item_id==$id)?"cur":"";?>"><?php echo $history_menu->navname;?></a>
-				<?php endforeach;?>
-			</div>
-            <div class="history-con clearfloat">
-                <div class="history-slide-con">
-                    <div class="history-slide-prev" id="historySlidePrev"><span></span></div>
-                    <div class="history-slide" id="historySlide">
-                        <div class="history-slide-wrapper">
-                            <?php
-                                $cat_posts=get_posts("category=39&order=asc");
-                                foreach ($cat_posts as $cat_post):?>
-                                    <div class="history-slide-slide"><span class="font-baskvill"><?php echo $cat_post->post_title; ?></span>
-                                        <div class="p">
-                                            <?php echo get_post($cat_post->ID)->post_content;?>
-                                        </div>
-                                    </div>
-                                    <?php endforeach;?>
-                        </div>
-                    </div>
-                    <div class="history-slide-next" id="historySlideNext"><span></span></div>
-                </div>
-                <div class="history-intro-con">
-                    <div class="history-intro-tb">
-                        <div class="history-intro-title font-baskvill" id="histroyIntroTitle"></div>
-                        <div class="history-intro-detail" id="histroyIntroDetail"></div>
-                    </div>
-                </div>
-
-                <div class="history-slide-img swiper-container" id="historySlideImg">
-                    <div class="swiper-wrapper">
-	                    <?php
-	                    $cat_posts=get_posts("category=39&order=asc");
-	                    foreach ($cat_posts as $cat_post):?>
-		                    <?php
-		                    // 获取特色图像的地址
-		                    $post_ID=$cat_post->ID;
-		                    $post_thumbnail_id = get_post_thumbnail_id( $post_ID );
-		                    $post_thumbnail_src = wp_get_attachment_image_src($post_thumbnail_id,'Full');
-		                    ?>
-                            <div class="swiper-slide">
-                                <div class="img">
-                                    <span class="swiper-lazy" data-background="<?php echo $post_thumbnail_src[0];?>"></span></div>
-                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                            </div>
-	                    <?php endforeach;?>
-                    </div>
-                </div>
-            </div>
-		</div>
-	</div>
 
 <?php
 
 
     get_footer();
-
 
 
 ?>

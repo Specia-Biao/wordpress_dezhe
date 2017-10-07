@@ -20,135 +20,108 @@ $cat=get_category(18);
 $parent_cat=get_category($cat->parent);
 ?>
 
-    <div class="insideBanner por" style="background-image: url(<?php echo get_stylesheet_directory_uri();?>/static/upload/join_banner.jpg)">
-        <div class="insideBannerBg"></div>
-        <div class="path wp1200 clearfloat">
-            <div class="word">
-                <div class="cn"><?php echo $cat->cat_name;?></div>
-                <div class="en font-baskvill"><?php echo category_description("$cat->cat_ID")?></div>
-            </div>
-            <div class="bread">
-                <a href="/">首页</a>
-                >&nbsp;<a href="<?php the_permalink(181);?>"><?php echo $parent_cat->cat_name;?></a>
-                >&nbsp;<a href="<?php the_permalink(181);?>"><?php echo $cat->cat_name;?></a>
-                >&nbsp;<?php echo the_title();?>
-            </div>
+
+
+    <div class="header-one">
+        <span><?php echo $parent_cat->cat_name;?></span>
+        <div class="back">
+            <a href="javascript:void(0)" onclick="javascript:window.history.go(-1);">
+                <i></i>
+            </a>
+        </div>
+        <div class="nav-home">
+            <a href="/wap">
+                <span></span>
+            </a>
+        </div>
+
+        <div class="nav-btn">
+            <a href="javascript:void(0)">
+                <span></span>
+            </a>
         </div>
     </div>
 
-    <div class="join-main bgf2">
+    <!--banner-->
+    <div class="news-flash-list-banner talent-banner" style="background-image: url(<?php echo get_stylesheet_directory_uri();?>/static/upload/join_banner.jpg)">
+        <div class="y">
+            <h1><?php echo $cat->cat_name;?></h1>
+            <h2><?php echo category_description("$cat->cat_ID");?></h2>
+        </div>
+    </div>
 
-        <div class="wp1200">
 
-            <div class="inside-menu">
-				<?php
-				$inside_menus=theme_nav_menu("join");
-				foreach ($inside_menus as $inside_key=>$inside_menu):?>
-                    <a href="<?php echo $inside_menu->m_url;?>" class="<?php echo ($inside_menu->item_id==$id)?"cur":"";?>"><?php echo $inside_menu->navname;?></a>
-				<?php endforeach;?>
-            </div>
-            <div class="join-form-con">
-                <form name="joinus" id="joinus" method="post" action="" onsubmit="return check()">
-                    <input type="hidden" name="linkurl" value="add">
-                    <input type="hidden" name="fgid" id="fgid" value="5">
-                    <input type="hidden" name="formcode" id="formcode" value="joinus">
-                    <input type="hidden" name="did" id="did" value="0">
-                    <input type="hidden" name="tokenkey" value="3967ea7c3fd62e039d431d6fcc1d35d0">
-                    <div class="join-form-box">
-                        <div class="join-form-title"><span>加入我们</span></div>
-                        <div class="join-form-col clearfloat">
-                            <div class="join-form-cell">
-                                <div class="join-form-input-box">
-                                    <div class="join-form-input-word"><span>*</span>联系人</div>
-                                    <div class="join-form-input"><input name="linkman" id="linkman" type="text" value=""></div>
-                                </div>
-                            </div>
-                            <div class="join-form-cell">
-                                <div class="join-form-input-box">
-                                    <div class="join-form-input-word"><span>*</span>联系电话</div>
-                                    <div class="join-form-input"><input name="linkphone" id="linkphone" type="text" value=""></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="join-form-col clearfloat">
-                            <div class="join-form-cell">
-                                <div class="join-form-input-box">
-                                    <div class="join-form-input-word"><span></span>现经营事业</div>
-                                    <div class="join-form-input"><input name="bussiness" type="text" value=""></div>
-                                </div>
-                            </div>
-                            <div class="join-form-cell">
-                                <div class="join-form-radio-box clearfloat">
-                                    <label><input type="radio" value="已有店面" name="isshore" checked=""><span>已有店面</span></label>
-                                    <label><input type="radio" value="没有店面" name="isshore"><span>没有店面</span></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="join-form-col clearfloat">
-                            <div class="join-form-cell">
-                                <div class="join-form-input-box">
-                                    <div class="join-form-input-word"><span></span>店面面积</div>
-                                    <div class="join-form-input"><input name="area" type="text" value=""></div>
-                                </div>
-                            </div>
-                            <div class="join-form-cell">
-                                <div class="join-form-input-box">
-                                    <div class="join-form-input-word"><span>*</span>计划投入</div>
-                                    <div class="join-form-input"><input name="putin" id="putin" type="text" value=""></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="join-form-col">
-                            <div class="join-form-select-con">
-                                <div class="join-form-input-word"><span>*</span>加盟区域：</div>
-                                <div class="join-form-select clearfloat">
-                                    <select name="prov" id="s1" class="bottomSelect"><option value="">省份</option><option value="北京市">北京市</option><option value="天津市">天津市</option><option value="河北省">河北省</option><option value="山西省">山西省</option><option value="内蒙古自治区">内蒙古自治区</option><option value="辽宁省">辽宁省</option><option value="吉林省">吉林省</option><option value="黑龙江省">黑龙江省</option><option value="上海市">上海市</option><option value="江苏省">江苏省</option><option value="浙江省">浙江省</option><option value="安徽省">安徽省</option><option value="福建省">福建省</option><option value="江西省">江西省</option><option value="山东省">山东省</option><option value="河南省">河南省</option><option value="湖北省">湖北省</option><option value="湖南省">湖南省</option><option value="广东省">广东省</option><option value="广西壮族自治区">广西壮族自治区</option><option value="海南省">海南省</option><option value="重庆市">重庆市</option><option value="四川省">四川省</option><option value="贵州省">贵州省</option><option value="云南省">云南省</option><option value="西藏自治区">西藏自治区</option><option value="陕西省">陕西省</option><option value="甘肃省">甘肃省</option><option value="青海省">青海省</option><option value="宁夏回族自治区">宁夏回族自治区</option><option value="新疆维吾尔自治区">新疆维吾尔自治区</option><option value="香港特别行政区">香港特别行政区</option><option value="澳门特别行政区">澳门特别行政区</option><option value="台湾省">台湾省</option></select>
-                                    <select name="city" id="s2" class="bottomSelect"><option value="">地级市</option></select>
-                                    <select name="county" id="s3" class="bottomSelect"><option value="">市、县级市、县</option></select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="join-form-col">
-                            <div class="join-form-btn"><input name="submit" type="submit" value="提交" id="joinFormbtn"></div>
-                        </div>
-                        <script>
-                            $(function () {
-                                toastr.options = {
-                                    "positionClass": "toast-center-center"
-                                };
-                            })
-                            function check(){
+    <div class="nav-two swiper-container">
+        <ul class="swiper-wrapper">
+            <?php
+            $inside_menus=theme_nav_menu("join");
+            foreach ($inside_menus as $inside_key=>$inside_menu):
+                ?>
+                <li class="swiper-slide <?php echo ($id==($inside_menu->item_id))?"active":"";?>">
+                    <a href="<?php echo $inside_menu->nav_url;?>"><?php echo $inside_menu->navname;?></a>
+                </li>
+            <?php endforeach;?>
+        </ul>
+    </div>
 
-                                var linkman = $('#linkman').val();
-                                if(!linkman){
-                                    toastr.error('请填写联系人!');
-                                    return false;
-                                }
-                                var linkphone = $('#linkphone').val();
-                                var checkT = /^((\d{11})|(\d{7,8})|(\d{4}|\d{3})-(\d{7,8}))$/;
-                                if(!linkphone){
-                                    toastr.error('请填写联系电话!');
-                                    return false;
-                                }else if(!checkT.test(linkphone)){
-                                    toastr.error('联系电话格式填写错误!');
-                                    return false;
-                                }
-                                var putin = $('#putin').val();
-                                if(!putin){
-                                    toastr.error('请填写计划投入!');
-                                    return false;
-                                }
-                                if($('select[name="prov"] :selected').val()==0){
-                                    toastr.error('请选择加盟区域!');
-                                    return false;
-                                }
-                            }
-                        </script>
-                    </div>
-                </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form name="join_phone" id="join_phone" method="post" action=""  onSubmit="return check()">
+    <input type="hidden" name="linkurl" value="add"/>
+    <input type="hidden" name="fgid" id="fgid" value="10"/>
+    <input type="hidden" name="formcode" id="formcode" value="join_phone"/>
+    <input type="hidden" name="did" id="did" value="0"/>
+    <input type="hidden" name="tokenkey" value="ea8b1d4739d6b71898758cbf2bf233dc"/>
+    <div class="join-us">
+        <div class="bg-yy">
+            <div class="bg">
+                <div class="input">
+                    <input type="text" name="linkman" value="" placeholder="姓名" id="linkman">
+                </div>
+                <div class="input">
+                    <input type="text" name="linkphone" value="" placeholder="联系电话" id="linkphone">
+                </div>
+                <div class="input">
+                    <input type="text" name="bussiness" value="" placeholder="现经营事业" id="bussiness">
+                </div>
+                <ul class="radio">
+                    <li class="active" ><input type="radio" value="已有店面" name="isshore" checked="checked" style="display: none;"><span>已有店面</span></li>
+                    <li><input type="radio" value="没有店面" name="isshore" style="display: none;" checked><span>没有店面</span></li>
+                </ul>
+                <div class="input">
+                    <input type="text" name="area" type="text" value="" placeholder="店面面积" id="area">
+                </div>
+                <div class="input">
+                    <input type="text" name="putin" type="text" value="" placeholder="计划投入" id="putin">
+                </div>
+                <div class="title">
+                    加盟区域
+                </div>
+                <ul class="select">
+                    <li><select name="prov" id="s1" class="customSelect"></select><span></span></li>
+                    <li><select name="city" id="s2" class="customSelect"></select><span></span></li>
+                    <li><select name="county" id="s3" class="customSelect"></select><span></span></li>
+                </ul>
+
+                <div class="btn">
+                    <button type="submit">提交</button>
+                </div>
             </div>
         </div>
-</div>
+    </div>
+</form>
 
 
 
@@ -157,11 +130,53 @@ $parent_cat=get_category($cat->parent);
 get_footer();
 ?>
 
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/static/js/zt/city.js"></script>
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/static/js/core.js"></script>
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/static/js/script.js"></script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/static/js/city.js"></script>
 <script>
-    $(function () {
-        new PCAS("prov", "city", "county", "省份", "城市", "区/县");
+    function check() {
+        var linkman = $('#linkman').val();
+        var linkphone = $('#linkphone').val();
+        var bussiness = $('#bussiness').val();
+        var area = $('#area').val();
+        var putin = $('#putin').val();
+        var province = document.getElementById("s1").value;
+        var city = document.getElementById("s2").value;
+        var county = document.getElementById("s3").value;
+        if(linkman==''){
+            alert('请填写姓名');
+            return false;
+        }
+        if (/^13\d{9}$/g.test(linkphone) || (/^15[0-35-9]\d{8}$/g.test(linkphone)) || (/^18[0-9]\d{8}$/g.test(linkphone))) {
+        }
+        else {
+            alert("您输入的手机号码格式不正确");
+            return false;
+        }
+        if(bussiness==''){
+            alert('请填写现经营事业');
+            return false;
+        }
+        if(area==''){
+            alert('请填写店面面积');
+            return false;
+        }
+        if(putin==''){
+            alert('请填写计划投入');
+            return false;
+        }
+        if(province==''){
+            alert('请选择省份');
+            return false;
+        }
+        if(city==''){
+            alert('请选择城市');
+            return false;
+        }
+        if(county==''){
+            alert('请选择市、县级');
+            return false;
+        }
+    }
+    $(function(){
+        new PCAS("prov", "city", "county", "省份", "地级市", "市、县级市、县");
     })
 </script>

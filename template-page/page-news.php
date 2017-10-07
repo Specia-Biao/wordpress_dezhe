@@ -12,6 +12,136 @@ $news_catId=8;
 ?>
 
 
+    <div class="header-one">
+		<span>司米快讯</span>
+        <div class="back">
+            <a href="javascript:void(0)" onclick="javascript:window.history.go(-1);">
+                <i></i>
+            </a>
+        </div>
+        <div class="nav-home">
+            <a href="http://www.ssk.com.cn//wap">
+                <span></span>
+            </a>
+        </div>
+
+        <div class="nav-btn">
+            <a href="javascript:void(0)">
+                <span></span>
+            </a>
+        </div>
+    </div>
+    <!--轮播-->
+    <div class="product-carousel-box product-carousel-box-1">
+        <div class="product-carousel product-details-carousel news-flash-carousel">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image: url(http://www.ssk.com.cn/upfile/2017/09/20170927163747_270.png)">
+                        <a href="http://www.ssk.com.cn/wap/index.php?ac=article&at=read&did=1039">
+                        </a>
+                        <div class="news-flash-title">
+                            <h1>国庆“放价啦” 司米爆款橱柜限量抢</h1>
+                            <div class="time">2017-09-27</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url(http://www.ssk.com.cn/upfile/2017/09/20170915144225_321.jpg)">
+                        <a href="http://www.ssk.com.cn/wap/index.php?ac=article&at=read&did=1036">
+                        </a>
+                        <div class="news-flash-title">
+                            <h1>司米橱柜荣获外观设计专利证书，新品阿尔凯特...</h1>
+                            <div class="time">2017-09-15</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url(http://www.ssk.com.cn/upfile/2017/09/20170915144505_872.jpg)">
+                        <a href="http://www.ssk.com.cn/wap/index.php?ac=article&at=read&did=1012">
+                        </a>
+                        <div class="news-flash-title">
+                            <h1>司米电器上市，为司米整体厨房解决方案再添新...</h1>
+                            <div class="time">2017-08-04</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url(http://www.ssk.com.cn/upfile/2017/07/20170710175251_633.png)">
+                        <a href="http://www.ssk.com.cn/wap/index.php?ac=article&at=read&did=972">
+                        </a>
+                        <div class="news-flash-title">
+                            <h1>司米橱柜发布产品新概念：更懂厨房，从司米3D...</h1>
+                            <div class="time">2017-07-10</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url(http://www.ssk.com.cn/upfile/2017/06/20170605103328_714.jpg)">
+                        <a href="http://www.ssk.com.cn/wap/index.php?ac=article&at=read&did=902">
+                        </a>
+                        <div class="news-flash-title">
+                            <h1>法国SALM集团正式更名为Schmidt Groupe司米集...</h1>
+                            <div class="time">2017-06-02</div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var mySwiper = new Swiper('.product-carousel .swiper-container', {
+//			autoplay: 5000,//可选选项，自动滑动
+                resistanceRatio: 0,
+                pagination: '.product-carousel .swiper-pagination',
+                loop: true
+            })
+        })
+    </script>
+    <div class="d-bg">
+        <!--资讯-->
+        <ul class="news-flash-list">
+            <li>
+                <a href="http://www.ssk.com.cn/wap/index.php?ac=article&at=list&tid=12">
+                    <div class="img" style="background-image: url(http://www.ssk.com.cn/upfile/2016/11/20161117172551_304.jpg)">
+
+                    </div>
+                    <div class="title">
+                        品牌资讯
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.ssk.com.cn/wap/index.php?ac=article&at=list&tid=14">
+                    <div class="img" style="background-image: url(http://www.ssk.com.cn/upfile/2016/11/20161117172559_189.jpg)">
+
+                    </div>
+                    <div class="title">
+                        媒体资讯
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <!--促销资讯-->
+        <div class="promotional-information">
+            <a href="http://www.ssk.com.cn/wap/index.php?ac=article&at=list&tid=13" style="background-image: url(http://www.ssk.com.cn/upfile/2016/11/20161117172609_750.jpg)">
+                <span>促销资讯</span>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<div class="newsMain">
 		<div class="wp1200">
 			<div class="newsCenterBox clearfloat">
