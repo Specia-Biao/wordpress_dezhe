@@ -1,15 +1,7 @@
 <?php
-
-
-
-	get_header("world");
-
-
-
+get_header("world");
 global $wp_query;
 $catId = get_query_var('cat');
-
-
 ?>
 <!--banner-->
 
@@ -25,11 +17,9 @@ $catId = get_query_var('cat');
 <div class="special-nav">
 	<div class="special-wp clearfloat">
 		<h1 class="logo">
-			<a href="/"> <img src="<?php echo get_stylesheet_directory_uri();?>/static/images/special/logo.jpg" alt=""></a>
+			<a href="/wap"> <img src="<?php echo get_stylesheet_directory_uri();?>/static/images/special/logo.jpg" alt=""></a>
 		</h1>
 		<ul class="special-nav-ul clearfloat">
-
-
             <?php
                 $special_cats=get_categories("child_of=$catId");
                 foreach ($special_cats as $special_cat): ?>
@@ -43,7 +33,7 @@ $catId = get_query_var('cat');
 			<li class="icon"></li>
 		</ul>
 		<div class="home">
-			<a href="/">
+			<a href="/wap">
 				<img src="<?php echo get_stylesheet_directory_uri();?>/static/images/special/icon-1.png" alt="">
 			</a>
 		</div>

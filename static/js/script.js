@@ -46,7 +46,8 @@ $(function () {
         $(".bg-1").hide(), $(".search-box-show").hide(), $(".wx-box").stop(!0, !0).fadeOut()
     }), $(".join-us .radio li").click(function () {
         $(this).addClass("active").siblings().removeClass("active")
-    }), $(".product-details-title li").click(function () {
+    }),
+        $(".product-details-title li").click(function () {
         $(this).parents("ul").siblings().stop(!0, !0).slideToggle(), $(this).find(".icon").toggleClass("on")
     }), $(".talent-details-nr .btn a").click(function () {
         $(".talent-form").show(), document.addEventListener("touchmove", i, !1), o = new IScroll(".talent-form", {

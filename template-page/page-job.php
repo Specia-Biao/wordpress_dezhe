@@ -93,7 +93,7 @@ $sum=count($job_posts);
         <li>
             <a href="<?php echo $job_post->guid;?>">
                 <div class="top">
-                    <div class="title"><?php echo get_post_meta("$job_post->ID","pos",true);?></div>
+                    <div class="title"><?php echo $job_post->post_title;?></div>
                     <div class="icon">
                         <span>申请</span>
                         <span>application</span>
